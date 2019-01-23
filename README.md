@@ -1,2 +1,2 @@
-# max-kinesis-consumers
-What happens if you have six consumers of a single Kinesis stream?
+# Kinesis with many consumers
+One Kinesis stream and 12 consumers
