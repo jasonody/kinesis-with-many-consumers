@@ -27,7 +27,7 @@ module.exports.producer = (event, context, callback) => {
     .catch(err => callback(err));
 }
 
-function processor (event, context, callback) {
+module.exports.consumer = (event, context, callback) => {
   _(event.Records)
     .map(mapToEvent)
     .tap(print)
@@ -37,10 +37,3 @@ function processor (event, context, callback) {
 
 const mapToEvent = record => JSON.parse(new Buffer.from(record.kinesis.data, 'base64'));
 const print = data => console.log('received data: %j', data)
-
-module.exports.consumer1 = processor
-module.exports.consumer2 = processor
-module.exports.consumer3 = processor
-module.exports.consumer4 = processor
-module.exports.consumer5 = processor
-module.exports.consumer6 = processor
